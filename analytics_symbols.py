@@ -47,6 +47,7 @@ USAGE_SESSION_ID = "behavioural-idSessionUsage"
 PAGE_SESSION_ID = "behavioural-idSessionPage"
 CONTEXT_EVENT_ID = "gizmo-deviceContextId"
 EVENT_PROPERTY_STRUCT = "properties"
+# EVENT_ACTION = "navigation-action"  # Common Event Properties
 EVENT_USER_INITIATED = "behavioural-userInitiated"
 PAGE_NAME = "navigation-page"  # Page
 PREVIOUS_PAGE = "navigation-previousPage"
@@ -106,7 +107,7 @@ COLLECTION_TITLE = "metadata-collectionTitle"
 COLLECTION_SOURCE = "metadata-collectionSource"
 SEARCH_INITIATOR_SOURCE = "navigation-searchResultType"  # Search
 SEARCH_TERM = "navigation-searchTerm"
-SEARCH_SCORE = "navigation-searchScore"
+ASR_CONFIDENCE = "navigation-asrScore"
 CONF_PIN_CLASSIFICATION = "application-pinClassification"  # Application Configuration
 CONF_PIN_INFO = "application-pinInfo"
 CONF_PIN_NC = "application-pinNC"
@@ -120,6 +121,7 @@ CONF_NUM_SCHED_RECORDINGS = "application-numScheduledRecordings"
 CONF_NUM_TEAM_LINKS = "application-numTeamLinks"
 CONF_FAVOURITES_SETUP = "application-favouritesConfigured"
 CONF_DTT_SETUP = "application-dttConfigured"
+CONF_DTT_CHANNELS = "application-dttChannels"
 CONF_ENERGY_SAVING_ON = "application-energySavingOn"
 CONF_SPDIF_AUDIO_MODE = "application-spdifAudioOutput"
 CONF_HDMI_AUDIO_MODE = "application-hdmiAudioOutput"
@@ -131,6 +133,10 @@ APP_NAME = "application-name"  # Application Launch Event
 APP_PROVIDER = "application-provider"
 APP_STATE = "application-state"
 REBOOT_TYPE = "gizmo-rebootType"
+APP_VERSION_DATA = "application-versionSpecificData"
+CHANNEL_SLOT_ID = "application-channelSlotId"
+SERVICE_KEY = "application-serviceKey"
+CHANNEL_SOURCE = "application-channelSource"
 
 table = [
 	DOC_VERSION,
@@ -148,7 +154,7 @@ table = [
 	CUSTOMER_AMS_PANEL,
 	SOFTWARE_VERSION,
 	EVENT_LIST,
-	HARDWARE_VERSION,
+	HARDWARE_VERSION,  # Device Context Event
 	OS_VERSION,
 	DEVICE_MODEL_ID,
 	DEVICE_RESETS,
@@ -173,18 +179,18 @@ table = [
 	UI_VERSION,
 	EPG_VERSION,
 	EPG_VERSION_INSTALL_DATE,
-	EVENT_ID,
+	EVENT_ID,  # Event header
 	APP_SESSION_ID,
 	USAGE_SESSION_ID,
 	PAGE_SESSION_ID,
 	CONTEXT_EVENT_ID,
 	EVENT_PROPERTY_STRUCT,
 	EVENT_USER_INITIATED,
-	PAGE_NAME,
+	PAGE_NAME,  # Page
 	PREVIOUS_PAGE,
 	PAGE_FILTER,
 	PAGE_SORT,
-	CONTENT_PROVIDER,
+	CONTENT_PROVIDER,  # Content Metadata
 	CONTENT_PROMO_CHANNEL,
 	CONTENT_PROGRAM_ID,
 	CONTENT_SCHEDULE_ID,
@@ -195,7 +201,7 @@ table = [
 	CONTENT_CLASSIFICATION,
 	CONTENT_RESOLUTION,
 	CONTENT_PRICE,
-	CONTENT_TYPE,
+	CONTENT_TYPE,  # Media specific data
 	PLAYER_VIEW_STATUS,
 	MEDIA_EVENT_SOURCE,
 	MEDIA_BOOKING_SOURCE,
@@ -206,7 +212,7 @@ table = [
 	MEDIA_EXTEND_REC_DURATION,
 	MEDIA_DOWNLOAD_STATE,
 	MEDIA_MAX_VIEWED_OFFSET,
-	PLAYER_VIEWING_START_TIMESTAMP,
+	PLAYER_VIEWING_START_TIMESTAMP,  # Player specific data
 	PLAYER_TRICKMODE_SPEED,
 	PLAYER_MEDIA_OFFSET,
 	PLAYER_VIEWED_DURATION,
@@ -216,10 +222,10 @@ table = [
 	PLAYER_QOS_BUFFERING_COUNT,
 	PLAYER_QOS_ABR_SHIFTS,
 	PLAYER_JUMP_TO,
-	ERROR_FNUM_MESSAGE,
+	ERROR_FNUM_MESSAGE,  # Error Message
 	ERROR_TECHNICAL_MESSAGE,
-	DEVICE_POWER_STATUS,
-	DISPLAY_ON,
+	DEVICE_POWER_STATUS,  # Power State Event
+	DISPLAY_ON,  # Video Output properties
 	DISPLAY_DETECTED_HDR,
 	DISPLAY_NEG_HDMI,
 	DISPLAY_NEG_HDCP,
@@ -227,7 +233,7 @@ table = [
 	DISPLAY_NEG_FRAMERATE,
 	DISPLAY_EDID_SIG,
 	DISPLAY_EDID_BLOCK,
-	SELECTOR_TRACK_ID,
+	SELECTOR_TRACK_ID,  # Selector
 	SELECTOR_TYPE,
 	SELECTOR_TITLE,
 	SELECTOR_ROW,
@@ -236,10 +242,10 @@ table = [
 	TILE_LOCKED,
 	COLLECTION_TITLE,
 	COLLECTION_SOURCE,
-	SEARCH_INITIATOR_SOURCE,
+	SEARCH_INITIATOR_SOURCE,  # Search
 	SEARCH_TERM,
-	SEARCH_SCORE,
-	CONF_PIN_CLASSIFICATION,
+	ASR_CONFIDENCE,
+	CONF_PIN_CLASSIFICATION,  # Application Configuration
 	CONF_PIN_INFO,
 	CONF_PIN_NC,
 	CONF_CHANNEL_BLOCKING_ON,
@@ -259,8 +265,13 @@ table = [
 	CONF_STREAM_FROM_STORE,
 	CONF_CEC_POWER,
 	CONF_CEC_VOLUME,
-	APP_NAME,
+	APP_NAME,  # Application Launch Event
 	APP_PROVIDER,
 	APP_STATE,
-	REBOOT_TYPE
+	REBOOT_TYPE,
+	APP_VERSION_DATA,
+	CONF_DTT_CHANNELS,
+	CHANNEL_SLOT_ID,
+	SERVICE_KEY,
+	CHANNEL_SOURCE
 ]
